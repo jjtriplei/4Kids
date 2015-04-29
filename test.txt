@@ -1,6 +1,0 @@
-Python files are the same as other files on your computer: documents,
-pictures, music, games . . . indeed, everything on your
-computer is stored as files.
-Let’s look at how to open and work with files in Python by
-using the built-in function open. But first we need to create a
-new file to play with.
