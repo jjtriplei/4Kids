@@ -167,6 +167,15 @@ your_calculation = input("Enter a Calculation: ")
 eval("your_calculation")
 # Will Return calculation
 
+#=================================================#
+EXAMPLE:
+
+your_calculation = input("Enter your Calculation: ")
+# RETURNS: Enter your Calculation: 12*52
+eval("your_calculation")
+# RETURNS: 624
+#=================================================#
+
 print("================================================================")
 print("================================================================")
 
@@ -187,9 +196,13 @@ exec(my_small_program)
 print("================================================================")
 print("================================================================")
 
-								FUNCTION 6,7 & 8 : FLOAT, 
+FUNCTION 6,7,8,9,10,11 AND 12 : FLOAT, INT, LEN, MAX, MIN, RANGE, SUM
 
 print("================================================================")
+
+#=================================================#
+# FLOAT
+#=================================================#
 
 float("12")
 # RETURNS: 12.0
@@ -204,18 +217,124 @@ age = float(your_age)
 if age > 13:
 	print("You're {}s years too old")
 
-
-
-
 #=================================================#
-EXAMPLE:
-
-your_calculation = input("Enter your Calculation: ")
-# RETURNS: Enter your Calculation: 12*52
-eval("your_calculation")
-# RETURNS: 624
+# INT
 #=================================================#
 
+
+int(123.456)
+# RETURNS: 123
+# int will drop numbers after the decimal, but will not round up or down
+
+int("123")
+# RETURNS: 123
+
+int("123.456")
+# RETURNS VALUE ERROR BITCH!! :)
+
+#=================================================#
+# LEN
+#=================================================#
+
+# Short for length. Makes sence huh?
+# Counts characters in strings
+len('This is a test string')
+# RETURNS: 21 
+# Counts spaces
+
+# Counts elements in lists
+creature_list = ['unicorn', 'cyclops','fairy','elf','dragon','troll']
+print(len(creature_list))
+# RETURNS: 6
+
+# Counts items in a map
+enemies_map = {'Captain America' : 'Red Skull', 'Hank Pym' : 'Ultron'\
+'Spider-man' : 'Venom', 'Thor' : 'Loki'}
+print(len(enemies_map))
+# RETURNS: 4
+
+# IN A LOOP:
+fruit = ['apple','banana','clementine','dragon fruit']
+length = len(fruit)
+for x in range(0,length):
+	print('The fruit at index {} is {}'.format(x,fruit[x]))
+# RETURNS:
+# The fruit at index 0 is apple
+# The fruit at index 1 is banana
+# The fruit at index 2 is clementine
+# The fruit at index 3 is dragon fruit
+
+#=================================================#
+# MAX and MIN
+#=================================================#
+
+numbers = [5,4,10,30,22]
+print(max(numbers))
+# RETURNS: 30
+
+strings = 's,t,r,i,n,g,S,T,R,I,N,G'
+print(max(strings))
+# RETURNS: t
+# letters are ranked alphabetically, and lowercase letters come 
+# after uppercase letters, so t is more than T
+
+print(max(10,300,450,50,90))
+# RETURNS: 450
+
+numbers = [5,4,10,30,22]
+print(min(numbers))
+# RETURNS: 4
+
+# IN USE:
+guess_this_number = 61
+player_guesses = [12,15,70,45]
+if max(player_guesses) > guess_this_number:
+	print('Boom! You all lose')
+else:
+	print('You win')
+# RETURNS: Boom! You all lose
+
+#=================================================#
+# RANGE
+#=================================================#
+
+for x in range(0,5):
+	print(x)
+# RETURNS: 
+# 0
+# 1
+# 2
+# 3
+# 4
+
+print(list(range(0,5)))
+# RETURNS: [0,1,2,3,4]
+
+count_by_twos = list(range(0,30,2))
+print(count_by_twos)
+# RETURNS: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28]
+
+count_down_by_twos = list(range(40,10,-2))
+print(count_down_by_twos)
+# RETURNS: [40, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20, 18, 16, 14, 12]
+
+#=================================================#
+# SUM
+#=================================================#
+
+my_list_of_numbers = list(range(0,500,50))
+print(my_list_of_numbers)
+# RETURNS: [0, 50, 100, 150, 200, 250, 300, 350, 400, 450]
+print(sum(my_list_of_numbers))
+# RETURNS: 2250
+
+
+print("================================================================")
+print("================================================================")
+
+			FUNCTION 13 : WORKING WITH FILES
+
+print("================================================================")
 
 
 #=================================================#
@@ -224,20 +343,16 @@ OPENING FILES
 test_file = open('C:\\Users\\III\\Desktop\\Coding Lessons\\4Kids\\test.txt')
 text = test_file.read()
 print(text)
-
-# On the first line, we use open, which returns a file object
-# with functions for working with files. The parameter we use with
-# the open function is a string telling Python where to find the file.
+# 'open' returns a 'file object' with functions for working with files.
+# For the parameter, use a string telling Python where to find the file.
 # The two backslashes in the Windows filename tell Python
-# that the backslash is just that, and not some sort of command. (As
-# you learned in Chapter 3, backslashes on their own have a special
-# meaning in Python, particularly in strings.) We save the file object
-# to the variable test_file.
-# On the second line, we use the read function, provided by the
-# file object, to read the contents of the file and store it in the variable
-# text. We print the variable on the final line to display the
-# contents of the file.
-#=================================================#
+# that the backslash is just that, and not some sort of command 
+# (backslashes on their own have a special meaning in Python,
+# particularly in strings.) 
+# The 'file object' is saved to the variable 'test_file'. The 'read' 
+# function, provided by the 'file object', reads the contents of the
+# file and stores it in the variable 'text'. Printing the variable will
+# display the contents of the file.
 
 #=================================================#
 WRITING TO FILES
@@ -253,7 +368,67 @@ test_file = open('C:\\Users\\III\\Desktop\\Coding Lessons\\4Kids\\testwrite.txt'
 # function:
 
 test_file = open('C:\\Users\\III\\Desktop\\Coding Lessons\\4Kids\\testwrite.txt',"w")
-test_file.write("This is my test file")
-test_file.close() # we need to tell Python when we’re finished writing to
-# the file, using the close function:
+test_file.write("This is my super cereal test file")
+test_file.close() # we need to tell Python when we’re finished writing
+# to the file, using the close function:
 #=================================================#
+
+
+print("================================================================")
+print("================================================================")
+
+					PROGRAMMING PUZZLES: PUZZLE ONE:
+
+print("================================================================")
+print("================================================================")
+
+a = abs(10) + abs(-10)
+print(a)
+# WILL RETURN: 20
+b = abs(-10) + -10
+print(b)
+# WILL RETURN: 0
+
+
+print("================================================================")
+print("================================================================")
+
+					PROGRAMMING PUZZLES: PUZZLE TWO:
+
+print("================================================================")
+print("================================================================")
+
+string = "this if is you not are a reading very this good then way you \
+to have hide done a it message wrong"
+string2 = string.split()
+string3 = ""
+
+for w in range(0,len(string2),2):
+	string3 = string3 + " " + string2[w]
+print(string3)
+
+# #=================================================#
+# 					JOSH SPECIAL:
+# #=================================================#
+
+# The pythonic way to do that is to not use range
+# You're using range to get the current index during the loop
+# Which is a legitimate need for this :)
+# But what you'd actually wanna do is use enumerate
+# for index, word in enumerate (string3):
+# Index will be the number of the loop
+# Word will be a word in the list of split strings
+# Try it out :)
+# Handy tool to have
+
+print("================================================================")
+print("================================================================")
+
+					PROGRAMMING PUZZLES: PUZZLE THREE:
+
+print("================================================================")
+print("================================================================")
+
+test_file = open('C:\\Users\\III\\Desktop\\Coding Lessons\\4Kids\\testwrite.txt',"w")
+test_file.write("This is my super cereal test file")
+test_file.close()
