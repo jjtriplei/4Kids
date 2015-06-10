@@ -429,6 +429,19 @@ print("================================================================")
 print("================================================================")
 print("================================================================")
 
-test_file = open('C:\\Users\\III\\Desktop\\Coding Lessons\\4Kids\\testwrite.txt',"w")
-test_file.write("This is my super cereal test file")
+test_file = open('C:\\Users\\III\\Desktop\\Coding Lessons\\4Kids\\testwrite.txt')
+test_file2 = test_file.read()
 test_file.close()
+
+test_file = open('C:\\Users\\III\\Desktop\\Coding Lessons\\4Kids\\testwrite2.txt',"w")
+test_file.write(test_file2)
+test_file.close()
+
+#  That example works, but actually a better way to copy a file is
+#  using a Python module called shutil:
+
+#  import shutil
+#  shutil.copy('test.txt', 'output.txt')
+
+print("================================================================")
+print("================================================================")
